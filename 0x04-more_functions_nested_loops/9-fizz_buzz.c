@@ -18,19 +18,18 @@ int main(void)
 	{
 		if (i % 3 == 0 && i % 5 == 0)
 		{
-			printf("%s%s ", fizz, buzz);
-			continue;
+			printf("%s%s", fizz, buzz);
 		} else if (i % 3 == 0)
 		{
-			printf("%s ", fizz);
-			continue;
+			printf("%s", fizz);
 		} else if (i % 5 == 0)
 		{
-			printf("%s ", buzz);
-			continue;
+			printf("%s", buzz);
+		} else
+		{
+			printf("%d", i);
 		}
-		printf("%d", i);
-		putchar(' ');
+		printf(" ");
 	}
 	printf("\n");
 	return (0);
