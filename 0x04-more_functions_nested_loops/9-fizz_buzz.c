@@ -1,11 +1,9 @@
 #include <stdio.h>
 
 /**
-* main - Print 1 to 100 then replace multiples of 3 with Fizz
-* and multiples of 5 with Buzz then multiples of both with
- * FizzBuzz
- *
- * Return: 1
+* main - Print 1 to 100 ...
+*
+* Return: 0
 */
 
 int main(void)
