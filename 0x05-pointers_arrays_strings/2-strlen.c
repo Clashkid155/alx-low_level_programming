@@ -11,7 +11,7 @@
 int _strlen(char *s)
 {
 	int c;
-	int size = (int) sizeof(s);
+	int size = (int) sizeof(s) * 1024;
 
 	for (c = 0; c <= size; c++)
 	{
