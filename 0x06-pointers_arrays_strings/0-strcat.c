@@ -7,9 +7,9 @@
 *
 * Return: string length
 */
-size_t _strlen(char *s)
+int _strlen(char *s)
 {
-	size_t i;
+	int i;
 
 	for (i = 0; s[i] != '\0'; i++)
 		;
@@ -27,11 +27,11 @@ size_t _strlen(char *s)
 
 char *_strcat(char *dest, char *src)
 {
-	size_t i, k;
-	char *pstr;
+	int i, k;
 
 	k = _strlen(dest);
 
 	for (i = 1; i <= _strlen(src); i++)
-		dest[(k + 1) - 1] = src[i];
+		dest[(k + i) - 1] = src[i - 1];
+	return (dest);
 }
