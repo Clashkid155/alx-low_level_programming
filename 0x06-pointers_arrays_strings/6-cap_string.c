@@ -4,6 +4,7 @@
 #define COMMA 44
 #define SEMICOLON 59
 #define DOT 46
+#define QUESTIONmARK 63
 #define EXCLAMATION 33
 #define QUOTE 34
 #define BRACKETOPEN 40
@@ -41,20 +42,22 @@ int _strlen(char *s)
 
 char *cap_string(char *s)
 {
-	int i, temp;
+	int i, temp, d;
+	int sep[13] = {COMMA, SEMICOLON, DOT, EXCLAMATION, QUESTIONmARK,
+	QUOTE, BRACKETOPEN, BRACKETCLOSE, PARENTHESESOPEN,
+	PARENTHESESCLOSE, SPACE, NEWLINE, TABSPACE};
 
-	for (i = 0; i < _strlen(s) - 1; i++)
+	for (i = 0; i < _strlen(s); i++)
 	{
 		if (s[i] <= 122 && s[i] >= 97)
 		{
 			temp = s[i - 1];
-			if (temp == SPACE || temp == NEWLINE || temp == TABSPACE || temp == DOT)
+			for (d = 0; d < 13; d++)
 			{
-				s[i] = s[i] - 32;
+				if (temp == sep[d])
+					s[i] = s[i] - 32;
 			}
-
 		}
-
 	}
 	return (s);
 }
