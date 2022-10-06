@@ -3,7 +3,7 @@
 #include <string.h>
 
 /**
-* string_nconcat - How any times will i concat?
+* string_nconcat - How many times will i concat?
 * @s1: Main string
 * @s2: String
 * @n: Amount of s2 to copy to s1
@@ -13,31 +13,37 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, str2, str1;
-	char *str;
+char *arrstr;
+	unsigned int l1, l2, l, i;
 
 	if (s1 == NULL)
 		s1 = "";
-
 	if (s2 == NULL)
 		s2 = "";
-	str2 = strlen(s2);
-	str1 = strlen(s1);
-	if (n >= str2)
-		n = str2;
 
-	str = malloc(sizeof(s1) + n);
+	for (l1 = 0; s1[l1] != '\0'; l1++)
+		;
+	for (l2 = 0; s2[l2] != '\0'; l2++)
+		;
 
-	if (str == NULL)
+	if (n >= l2)
+		n = l2;
+
+	l = l1 + n;
+
+	arrstr = malloc(l + 1);
+
+	if (arrstr == NULL)
 		return (NULL);
 
+	for (i = 0; i < l; i++)
+	{
+		if (i < l1)
+			arrstr[i] = s1[i];
+		else
+			arrstr[i] = s2[i - l1];
+	}
+	arrstr[i] = '\0';
 
-	for (i = 0; s1[i] != 0; i++)
-		str[i] = s1[i];
-
-	for (i = 0; i < n; i++)
-		str[str1 + i] = s2[i];
-	str[str1 + n + 1] = 0;
-
-	return (str);
+	return (arrstr);
 }
